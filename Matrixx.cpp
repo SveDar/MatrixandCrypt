@@ -110,6 +110,59 @@ void Matrixx::multyScalar(double scalar)
 		}
 	}
 }
+
+void Matrixx::transpon()
+{
+	Matrixx tempmat(cols, rows);
+	for (int i = 0; i < cols; i++)
+	{
+		for (int j = 0; j < rows; j++)
+		{
+			tempmat.setElement(i, j, matrix[j][i]);
+		}
+	}
+	Erase();
+	int temp = rows;
+	rows = cols;
+	cols = temp;
+	matrix = new double*[rows];
+	for (int i = 0; i < rows; ++i) {
+		matrix[i] = new double[cols];
+	}
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < cols; j++)
+		{
+			matrix[i][j] = tempmat.getElement(i, j);
+		}
+	}
+}
+void Matrixx::transponright()
+{
+	Matrixx tempmat(cols, rows);
+	for (int i = 0; i < cols; i++)
+	{
+		for (int j = 0; j < rows; j++)
+		{
+			tempmat.setElement(i, j, matrix[cols-j-1][rows-i-1]);
+		}
+	}
+	Erase();
+	int temp = rows;
+	rows = cols;
+	cols = temp;
+	matrix = new double*[rows];
+	for (int i = 0; i < rows; ++i) {
+		matrix[i] = new double[cols];
+	}
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < cols; j++)
+		{
+			matrix[i][j] = tempmat.getElement(i, j);
+		}
+	}
+}
 /*
 double Matrixx::determinant()
 {

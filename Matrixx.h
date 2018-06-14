@@ -22,6 +22,9 @@ public:
 	//other like Matrix*Matrix, Matrix+Matrix,determinant or matrix^-1 could be done out of matrix class :)
 	void addScalar(double scalar);
 	void multyScalar(double scalar);
+	void transpon();
+	void transponright();
+
 	~Matrixx();
 };
 //Dani lection :D
